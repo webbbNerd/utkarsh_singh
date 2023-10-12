@@ -44,8 +44,10 @@ tl.from(".hello", {
 const loader = document.getElementById("loader");
 const body = document.body;
 
+window.location.hash = "home";
 // Function to restore the body's overflow property to its default value
 function restoreScroll() {
+
   body.classList.remove("lock-scroll");
   body.classList.add("normal-scroll");
   loader.style.display = "none"; // Hide the loader
@@ -106,6 +108,18 @@ window.addEventListener("scroll", function () {
     home.style.boxShadow = "";
   }
 });
+
+const toTop = document.querySelector(".to-top");
+const toTopActive = document.querySelector(".to-top.active");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    toTop.classList.add("active");
+  } else {
+    toTop.classList.remove("active");
+  }
+});
+
 
 /*=============== SHOW SIDEBAR ===============*/
 const navMenu = document.getElementById("sidebar"),
